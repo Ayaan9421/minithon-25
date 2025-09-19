@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Insights</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1173d4",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex flex-col min-h-screen">
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-black/10 dark:border-white/10">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center space-x-8">
+<a class="flex items-center space-x-2" href="#">
+<span class="material-symbols-outlined text-primary text-3xl">insights</span>
+<span class="text-xl font-bold text-slate-800 dark:text-white">Data Playground</span>
+</a>
+<nav class="hidden md:flex items-center space-x-6">
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Datasets</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Visualizations</a>
+<a class="text-sm font-bold text-primary border-b-2 border-primary" href="#">AI Insights</a>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500">search</span>
+<input class="bg-black/5 dark:bg-white/5 border-none rounded-lg pl-10 pr-4 py-2 text-sm text-slate-700 dark:text-slate-200 focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Search..." type="text"/>
+</div>
+<button class="md:hidden p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/5">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDH-2rKpuw3NucxyPVa2z1ByqUVGVmhZ4vOuFk9MwMxZSCrckyCyC14qjP_ak3mK4Ekbl-D-Csks-wy5x9j7oks66HUBO7fdOhf8cbnazVry7_szp5gpfCTYvRwQF594icWbkmTYTyxAZkNi9VbYSOxRWVi6JuzL91m7GYxAhNPgK1jESRiVm89MLZsM-L4lRfofT6WAdWmuBIJuNOSrOQIyXbFoN5NzknjMbpnthJJ76_jlfpp3WqL7Ke4bbbD5Cu8Il1EbA0sDwY");'></div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col lg:flex-row gap-8">
+<div class="flex-1">
+<div class="mb-8">
+<h1 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-2">AI Insights</h1>
+<p class="text-slate-600 dark:text-slate-400">
+                Unlock deeper understanding of your data with AI-powered insights. Analyze your dataset to reveal key trends, anomalies, and actionable recommendations.
+              </p>
+</div>
+<div class="mb-8">
+<button class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-bold rounded-lg shadow-md hover:bg-primary/90 transition-all duration-300 transform hover:scale-105">
+<span class="material-symbols-outlined mr-2">auto_awesome</span>
+                Analyze Dataset
+              </button>
+</div>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Key Insights</h2>
+<div class="grid gap-6">
+<div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuA3hYJP1rHCYHVavpQza6oQxROqw13QcYYIjb0-Hy7_sFh9h9iEG03cqTWlK04e2mx5-2PYaQtASvQ7KSNc3uu1zf85SZEdiCydBjtAusz1xVD23jJhwx4nDtZI6oaHF41qpCevA-byz6J1Hrv91UC6QgAjda3bNT3c_VsuUjYNM5tu37KXaGrnGcZRUD3bav-EIu3DwxXkjHo-9fTyUfo_bP7tBZwy3G-kgp5rNEhsZC2W5m5Tg-444avdWW_o2qwnBVk0F47Ps5k");'></div>
+<div class="relative p-6 flex flex-col justify-end min-h-[220px]">
+<h3 class="text-2xl font-bold text-white mb-2">Trend Analysis</h3>
+<p class="text-white/80">
+                    The dataset shows a significant upward trend in sales over the past quarter, with an average increase of 15% month-over-month. This suggests a positive market response to recent product launches.
+                  </p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAzncc9PChsKfB-Escb9wk3tK-rf7HO9nX868xZdHEe9tfNNof6pOmiNqaLefUullunLf9NKEHMV5cn7gIK2godD4p1MvGFfBipXvsgbdXVAikDhbOmz47nB0IJvW2QfN4N1Y4Itz-808jg7hTvMXP3vsMKIruSaBrIJYXk-kZMHbBA9O4lRGeXj6zc327Xx1Sx15AQ08FohPAcplPOO27G8D89mFKemAQ2ORq7YDCaanrHNTJM_fCukFP60mZYBA91o9C6SSFk6C4");'></div>
+<div class="relative p-6 flex flex-col justify-end min-h-[220px]">
+<h3 class="text-2xl font-bold text-white mb-2">Anomaly Detection</h3>
+<p class="text-white/80">
+                    Anomalies were detected in the customer feedback data, indicating a sudden drop in satisfaction ratings for a specific product line. Further investigation is recommended to identify the root cause.
+                  </p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style='background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCkbs3Xo-to2GnwF9SHXJqdvAWM_idVse1vWRV2Pv6xAv3FvW3fFN_rlt5iXODMHB-Tb-5KTMQwEkFL59Wgz85do746HjXaJk8W99aF138WDTSQTQRt8v9Zx7S3isZ0rX5MVEWg9rUqtJdAcYB3eyn5_KrTbZwSrBOhTbOO-RuyNmGMZc1KG3L6d-EdDKBp9oqiOD432-NaV-JMO-IusRIhQFMe0cYXlDr2kJ-jS4bhQaNsYTtgVEVF9SeAiyrStRUbj8eqN9qX4s");'></div>
+<div class="relative p-6 flex flex-col justify-end min-h-[220px]">
+<h3 class="text-2xl font-bold text-white mb-2">Recommendations</h3>
+<p class="text-white/80">
+                    Based on the analysis, it is recommended to focus marketing efforts on the high-performing product lines and address the issues identified in the customer feedback for the underperforming products.
+                  </p>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<button class="inline-flex items-center justify-center px-6 py-3 bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white font-bold rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
+<span class="material-symbols-outlined mr-2">refresh</span>
+                    Regenerate Insights
+                </button>
+</div>
+</div>
+<aside class="w-full lg:w-80 xl:w-96 flex-shrink-0">
+<div class="sticky top-24">
+<div class="bg-white dark:bg-slate-800/50 rounded-xl shadow-md p-6">
+<h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Dataset Summary</h2>
+<div class="space-y-4">
+<div class="flex justify-between items-center border-t border-slate-200 dark:border-slate-700 pt-4">
+<p class="text-sm text-slate-600 dark:text-slate-400">Dataset Name</p>
+<p class="text-sm font-medium text-slate-800 dark:text-slate-200">Sales Data 2024</p>
+</div>
+<div class="flex justify-between items-center border-t border-slate-200 dark:border-slate-700 pt-4">
+<p class="text-sm text-slate-600 dark:text-slate-400">Number of Rows</p>
+<p class="text-sm font-medium text-slate-800 dark:text-slate-200">10,000</p>
+</div>
+<div class="flex justify-between items-center border-t border-slate-200 dark:border-slate-700 pt-4">
+<p class="text-sm text-slate-600 dark:text-slate-400">Number of Columns</p>
+<p class="text-sm font-medium text-slate-800 dark:text-slate-200">25</p>
+</div>
+<div class="flex justify-between items-center border-t border-slate-200 dark:border-slate-700 pt-4">
+<p class="text-sm text-slate-600 dark:text-slate-400">Data Types</p>
+<p class="text-sm font-medium text-slate-800 dark:text-slate-200">Numerical, Categorical</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+</div>
+
+</body></html>
