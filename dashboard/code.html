@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Stitch Design</title>
+  <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+  <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900"
+    onload="this.rel='stylesheet'" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1173d4",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            display: ["Inter"],
+          },
+          borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+  <div class="flex h-auto min-h-screen w-full flex-col">
+    <header
+      class="flex items-center justify-between whitespace-nowrap border-b border-gray-200/50 dark:border-gray-700/50 px-10 py-3 sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm z-50">
+      <div class="flex items-center gap-8">
+        <div class="flex items-center gap-3 text-gray-900 dark:text-white">
+
+          <h2 class="text-lg font-bold">Data Vizard</h2>
+        </div>
+        <nav class="flex items-center gap-6">
+
+          <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+            href="../home_/_landing_page/code.html">Home</a>
+          <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+            href="../settings_page/code.html">Settings</a>
+          <a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+            href="../help_/_docs_page/code.html">Help</a>
+        </nav>
+      </div>
+
+
+    </header>
+    <main class="flex-1 px-10 py-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-8">
+          <h1 class="text-3xl font-bold text-gray-900 dark:text-white">My Dashboards</h1>
+          <p class="text-gray-500 dark:text-gray-400 mt-1">Manage your saved dashboards and create new ones.</p>
+        </div>
+        <div class="space-y-12">
+          <div>
+            <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4 px-2">Recent Dashboards</h2>
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              <div
+                class="group relative flex flex-col rounded-lg border border-gray-200/80 dark:border-gray-700/80 bg-white/30 dark:bg-gray-800/20 shadow-sm hover:shadow-lg transition-all overflow-hidden">
+                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCH4jSBNUgDoT9IJxsS4grCPVmgOpfZnJ8fVxbYxZznRRZ4coLM6zQxxoXASWjIrSVNVAO5iOA8i8Op3at4y_ssQrBOzJV_d3seGZTlNVgIcVSLt3vwxqQaMUcnQBt5pXznZyeaF25IWoVrRPqjKI-CmPrvg1YGaiBE4bgcuji0eptuSxcovGm_Re4VqZphhRIZDiDawEBm5KcyFJNglA9O01GtofBIMWAioviWu6Yf-ClEVvb-G1xiUr-u5m5qSl1T9T-H5jLgwKk");'>
+                </div>
+                <div class="p-4 flex-1 flex flex-col">
+                  <p class="font-semibold text-gray-800 dark:text-white flex-1">Sales Performance Analysis</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Last updated: 2023-11-15</p>
+                </div>
+                <div
+                  class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity gap-2">
+                  <button class="bg-primary text-white rounded-full p-2 hover:bg-primary/80 transition-colors"><span
+                      class="material-symbols-outlined">edit</span></button>
+                  <button class="bg-gray-100 text-gray-800 rounded-full p-2 hover:bg-gray-200 transition-colors"><span
+                      class="material-symbols-outlined">content_copy</span></button>
+                  <button class="bg-gray-100 text-gray-800 rounded-full p-2 hover:bg-gray-200 transition-colors"><span
+                      class="material-symbols-outlined">delete</span></button>
+                </div>
+              </div>
+              <div
+                class="group relative flex flex-col rounded-lg border border-gray-200/80 dark:border-gray-700/80 bg-white/30 dark:bg-gray-800/20 shadow-sm hover:shadow-lg transition-all overflow-hidden">
+                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA8WGsQ30p7Rs4tYIUfgQ7BySfOeRr0qqTPrBnvW680tm8WvpzIT1SIHngJpHE0qkOjfjvaFb3b4-phvCKq5BwZGUr23dA4akGO2Xn7X1j_8mDFUdCzvXu0CoSZmMBXNpJfxscdBewWPlZl8FgQY60c-ySxKVkdc5_lUp6tSbYQhyNaLrj-wbrzo1j74IpseuywfEwbB0UuXi9VUEpHWSTFCBJJZbx5wpSF7zNoOyDO1sqWVl1dO_qZLAlIzo-_6QmLV7Hs1FrujbM");'>
+                </div>
+                <div class="p-4 flex-1 flex flex-col">
+                  <p class="font-semibold text-gray-800 dark:text-white flex-1">Customer Segmentation Report</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Last updated: 2023-11-12</p>
+                </div>
+                <div
+                  class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity gap-2">
+                  <button class="bg-primary text-white rounded-full p-2 hover:bg-primary/80 transition-colors"><span
+                      class="material-symbols-outlined">edit</span></button>
+                  <button class="bg-gray-100 text-gray-800 rounded-full p-2 hover:bg-gray-200 transition-colors"><span
+                      class="material-symbols-outlined">content_copy</span></button>
+                  <button class="bg-gray-100 text-gray-800 rounded-full p-2 hover:bg-gray-200 transition-colors"><span
+                      class="material-symbols-outlined">delete</span></button>
+                </div>
+              </div>
+              <div
+                class="group relative flex flex-col rounded-lg border border-gray-200/80 dark:border-gray-700/80 bg-white/30 dark:bg-gray-800/20 shadow-sm hover:shadow-lg transition-all overflow-hidden">
+                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB9Zok5Qg7SftzSwmmgo57JDp0pFx6tbMb6HaO9knIpHvC_kj_V-apSe0X5ZznrEDk8WqwHb3QYBooj6griIPveO13bv8gWYSVRuaAzYJA9RaF-1ZErFMYwMObyvMZtMauiNpBRydbPw-pB_DufcLsVvkNcdh3lQZ5AEGyL2g0GUDD_paDNUackGun37BEuSfxuhi7ATsqOWCxndCfkw-PFhzdPS7yvS_x7suSZa8LEWwwXqVHMgXzoysRDbr64TpKyeO_gTWVHXXI");'>
+                </div>
+                <div class="p-4 flex-1 flex flex-col">
+                  <p class="font-semibold text-gray-800 dark:text-white flex-1">Marketing Campaign Effectiveness</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Last updated: 2023-11-10</p>
+                </div>
+                <div
+                  class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity gap-2">
+                  <button class="bg-primary text-white rounded-full p-2 hover:bg-primary/80 transition-colors"><span
+                      class="material-symbols-outlined">edit</span></button>
+                  <button class="bg-gray-100 text-gray-800 rounded-full p-2 hover:bg-gray-200 transition-colors"><span
+                      class="material-symbols-outlined">content_copy</span></button>
+                  <button class="bg-gray-100 text-gray-800 rounded-full p-2 hover:bg-gray-200 transition-colors"><span
+                      class="material-symbols-outlined">delete</span></button>
+                </div>
+              </div>
+              <div
+                class="group relative flex flex-col rounded-lg border border-gray-200/80 dark:border-gray-700/80 bg-white/30 dark:bg-gray-800/20 shadow-sm hover:shadow-lg transition-all overflow-hidden">
+                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC6Wr3bEtYoJViZ-_o5427zsYI4TAMKW_QzOxbAKM_7LgFriR7_xTciGZjxVhafVpw6tGuPY85jVOXA6pHr2QhuhIxTQ6lCyRIbIxQX-e-xVA_JGKRCmfh3_aGe4poAaCEY8guZO6tCjG69LXPxezOSb7_9279-XO-VVV2Hi0M3LAkchllHkbVO8Gmbyh3BzYUZCgFBV4NoTfFv_YwB6p36B_c3YJuNrd89F5FxaIls_KpESh8SuWDcUGDDJ9pxSWm1UwIvHaNmyTs");'>
+                </div>
+                <div class="p-4 flex-1 flex flex-col">
+                  <p class="font-semibold text-gray-800 dark:text-white flex-1">Product Usage Metrics</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Last updated: 2023-11-08</p>
+                </div>
+                <div
+                  class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity gap-2">
+                  <button class="bg-primary text-white rounded-full p-2 hover:bg-primary/80 transition-colors"><span
+                      class="material-symbols-outlined">edit</span></button>
+                  <button class="bg-gray-100 text-gray-800 rounded-full p-2 hover:bg-gray-200 transition-colors"><span
+                      class="material-symbols-outlined">content_copy</span></button>
+                  <button class="bg-gray-100 text-gray-800 rounded-full p-2 hover:bg-gray-200 transition-colors"><span
+                      class="material-symbols-outlined">delete</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4 px-2">Older Dashboards</h2>
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              <div
+                class="group relative flex flex-col rounded-lg border border-gray-200/80 dark:border-gray-700/80 bg-white/30 dark:bg-gray-800/20 shadow-sm hover:shadow-lg transition-all overflow-hidden">
+                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB41cJ6_hFXCkaJb0Gz276FSd7igM9q00nfncQb19wv_YlwiEjFdk4r0x5yctLi7adv_Galm0TtRnzNa6PUg5VuSnWR086_g3bp1ong7GRMS08WARlqZESX8SA6vKPiSSwPTeGDsq9I_APajYd3cmtzKQOdbLDIF2cjJDzerCR_yYk2tEkH7MI-k_X_9kED1kdyC14Fj0ccqH6eSpq4kF01BiaEsx2yRMNkXbeMhroGYsXNmcUdINYmN6wkEk95LrDURw-GVzQlzjs");'>
+                </div>
+                <div class="p-4 flex-1 flex flex-col">
+                  <p class="font-semibold text-gray-800 dark:text-white flex-1">Inventory Management Dashboard</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Last updated: 2023-10-28</p>
+                </div>
+                <div
+                  class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity gap-2">
+                  <button class="bg-primary text-white rounded-full p-2 hover:bg-primary/80 transition-colors"><span
+                      class="material-symbols-outlined">edit</span></button>
+                  <button class="bg-gray-100 text-gray-800 rounded-full p-2 hover:bg-gray-200 transition-colors"><span
+                      class="material-symbols-outlined">content_copy</span></button>
+                  <button class="bg-gray-100 text-gray-800 rounded-full p-2 hover:bg-gray-200 transition-colors"><span
+                      class="material-symbols-outlined">delete</span></button>
+                </div>
+              </div>
+              <div
+                class="group relative flex flex-col rounded-lg border border-gray-200/80 dark:border-gray-700/80 bg-white/30 dark:bg-gray-800/20 shadow-sm hover:shadow-lg transition-all overflow-hidden">
+                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAY6Ka_9U-WOzdAIxjXzxNzlTAb06pcPJkUJLed8PQXI34FX5H-14N7T8aVQVGJpukfSIEJk2WKjrxRBroz88S63h04A7D-1x73zP9Q-mzZtCrnKxhloVTWM1THZCgk2QUB3LbT4K4ZYEtNo7rBPuiF032Epem6RtyiMvovjEtlGt8JXwpNoD_L3XqUvs7unwSMDX0hr9865nKn_BHwU1AKcpv8yVBnSytD_sVpAxmlijoKzQwjM43Hr0RHELDgCTf1dj9-0wPKIwg");'>
+                </div>
+                <div class="p-4 flex-1 flex flex-col">
+                  <p class="font-semibold text-gray-800 dark:text-white flex-1">Supply Chain Optimization</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Last updated: 2023-10-25</p>
+                </div>
+                <div
+                  class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity gap-2">
+                  <button class="bg-primary text-white rounded-full p-2 hover:bg-primary/80 transition-colors"><span
+                      class="material-symbols-outlined">edit</span></button>
+                  <button class="bg-gray-100 text-gray-800 rounded-full p-2 hover:bg-gray-200 transition-colors"><span
+                      class="material-symbols-outlined">content_copy</span></button>
+                  <button class="bg-gray-100 text-gray-800 rounded-full p-2 hover:bg-gray-200 transition-colors"><span
+                      class="material-symbols-outlined">delete</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../assets/js/theme.js"></script>
+</body>
+
+</html>

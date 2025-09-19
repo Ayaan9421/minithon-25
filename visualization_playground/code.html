@@ -1,174 +1,317 @@
 <!DOCTYPE html>
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Stitch Design</title>
-<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              primary: "#1173d4",
-              "background-light": "#f6f7f8",
-              "background-dark": "#101922",
-            },
-            fontFamily: {
-              display: ["Inter"],
-            },
-            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
-          },
-        },
-      };
-    </script>
-</head>
-<body class="font-display bg-background-light dark:bg-background-dark">
-<div class="flex h-screen w-full flex-col">
-<header class="flex h-16 shrink-0 items-center justify-between border-b border-background-light/10 dark:border-background-dark/10 bg-white/5 dark:bg-black/5 px-6 backdrop-blur-sm">
-<div class="flex items-center gap-4">
-<svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
-</svg>
-<h1 class="text-lg font-bold text-gray-900 dark:text-white">DataViz Playground</h1>
-</div>
-<div class="flex items-center gap-4">
-<button class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-gray-600 hover:bg-primary/20 dark:text-gray-400 dark:hover:bg-primary/30">
-<span class="material-symbols-outlined"> help </span>
-</button>
-<div class="h-10 w-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuANFwIzA3TUGLlO6feh2VXhVB4HDCSpwmg8iWpcy5ugvJgZH0CGQnOIeUF2BVprnoY_Lfg1L6_sQplFfFva6w5fxrqFancpjh487hT9shKxnrvPoR2pz5lYcX5G6iPa2MatI3w_F41LZJTU-NEdHlmPVODZPf9577763q8KXESm7HGLeFZBD9y0ZQ_abqvN2zlDK0Pwp7_CpNf0_TxBsNPKyKQyNFvFt2Sdf3msNbiDbTsd5BfPqTLuH6ZdMT92yD2oVlo3fdo7IUQ");'></div>
-</div>
-</header>
-<main class="flex flex-1 overflow-hidden">
-<aside class="w-80 shrink-0 border-r border-background-light/10 dark:border-background-dark/10 bg-white/5 dark:bg-black/5 p-6">
-<div class="flex flex-col space-y-6">
-<h2 class="text-xl font-bold text-gray-900 dark:text-white">Chart Builder</h2>
-<div class="space-y-4">
-<div class="flex flex-col gap-1.5">
-<label class="text-sm font-medium text-gray-500 dark:text-gray-400" for="chart-type">Chart Type</label>
-<select class="w-full rounded-lg border-gray-300 bg-background-light text-gray-900 focus:border-primary focus:ring-primary dark:border-gray-700 dark:bg-background-dark dark:text-white" id="chart-type">
-<option>Bar Chart</option>
-<option>Line Chart</option>
-<option>Area Chart</option>
-<option>Pie Chart</option>
-</select>
-</div>
-<div class="flex flex-col gap-1.5">
-<label class="text-sm font-medium text-gray-500 dark:text-gray-400" for="data-source">Data Source</label>
-<select class="w-full rounded-lg border-gray-300 bg-background-light text-gray-900 focus:border-primary focus:ring-primary dark:border-gray-700 dark:bg-background-dark dark:text-white" id="data-source">
-<option>Sales Data</option>
-<option>User Registrations</option>
-<option>Website Traffic</option>
-</select>
-</div>
-<div class="flex flex-col gap-1.5">
-<label class="text-sm font-medium text-gray-500 dark:text-gray-400" for="x-axis">X-Axis</label>
-<select class="w-full rounded-lg border-gray-300 bg-background-light text-gray-900 focus:border-primary focus:ring-primary dark:border-gray-700 dark:bg-background-dark dark:text-white" id="x-axis">
-<option>Month</option>
-<option>Day</option>
-<option>Product Category</option>
-</select>
-</div>
-<div class="flex flex-col gap-1.5">
-<label class="text-sm font-medium text-gray-500 dark:text-gray-400" for="y-axis">Y-Axis</label>
-<select class="w-full rounded-lg border-gray-300 bg-background-light text-gray-900 focus:border-primary focus:ring-primary dark:border-gray-700 dark:bg-background-dark dark:text-white" id="y-axis">
-<option>Revenue</option>
-<option>User Count</option>
-<option>Page Views</option>
-</select>
-</div>
-<div class="flex flex-col gap-1.5">
-<label class="text-sm font-medium text-gray-500 dark:text-gray-400" for="group-by">Group By</label>
-<select class="w-full rounded-lg border-gray-300 bg-background-light text-gray-900 focus:border-primary focus:ring-primary dark:border-gray-700 dark:bg-background-dark dark:text-white" id="group-by">
-<option>None</option>
-<option>Region</option>
-<option>Marketing Channel</option>
-</select>
-</div>
-</div>
-<button class="flex h-10 w-full items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-white">
-<span class="material-symbols-outlined mr-2"> add_chart </span>
-              Add Chart
-            </button>
-</div>
-</aside>
-<div class="flex flex-1 flex-col overflow-auto">
-<div class="flex h-16 shrink-0 items-center justify-between border-b border-background-light/10 dark:border-background-dark/10 px-6">
-<div class="flex items-center gap-2">
-<button class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-gray-600 hover:bg-primary/20 dark:text-gray-400 dark:hover:bg-primary/30">
-<span class="material-symbols-outlined"> ios_share </span>
-</button>
-<button class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-gray-600 hover:bg-primary/20 dark:text-gray-400 dark:hover:bg-primary/30">
-<span class="material-symbols-outlined"> refresh </span>
-</button>
-<button class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-gray-600 hover:bg-primary/20 dark:text-gray-400 dark:hover:bg-primary/30">
-<span class="material-symbols-outlined"> dark_mode </span>
-</button>
-</div>
-</div>
-<div class="flex-1 overflow-y-auto p-6">
-<div class="grid grid-cols-1 gap-6 @container lg:grid-cols-2">
-<div class="rounded-xl bg-white/5 dark:bg-black/5 p-6">
-<div class="flex flex-col gap-2">
-<p class="text-base font-medium text-gray-600 dark:text-gray-300">Sales Performance</p>
-<p class="text-4xl font-bold text-gray-900 dark:text-white">$2.5M</p>
-<div class="flex items-center gap-2">
-<p class="text-sm text-gray-500 dark:text-gray-400">This Quarter</p>
-<p class="text-sm font-medium text-green-500">+12%</p>
-</div>
-</div>
-<div class="mt-6 grid h-[180px] grid-flow-col items-end justify-items-center gap-4 px-3">
-<div class="w-full self-end rounded-t bg-primary/20 dark:bg-primary/40" style="height: 80%"></div>
-<div class="w-full self-end rounded-t bg-primary/20 dark:bg-primary/40" style="height: 20%"></div>
-<div class="w-full self-end rounded-t bg-primary/20 dark:bg-primary/40" style="height: 60%"></div>
-<div class="w-full self-end rounded-t bg-primary/20 dark:bg-primary/40" style="height: 45%"></div>
-<div class="w-full self-end rounded-t bg-primary" style="height: 80%"></div>
-</div>
-<div class="mt-2 grid grid-flow-col justify-items-center gap-4 px-3">
-<p class="text-xs font-medium text-gray-500 dark:text-gray-400">Jan</p>
-<p class="text-xs font-medium text-gray-500 dark:text-gray-400">Feb</p>
-<p class="text-xs font-medium text-gray-500 dark:text-gray-400">Mar</p>
-<p class="text-xs font-medium text-gray-500 dark:text-gray-400">Apr</p>
-<p class="text-xs font-medium text-gray-500 dark:text-gray-400">May</p>
-</div>
-</div>
-<div class="rounded-xl bg-white/5 dark:bg-black/5 p-6">
-<div class="flex flex-col gap-2">
-<p class="text-base font-medium text-gray-600 dark:text-gray-300">Customer Acquisition</p>
-<p class="text-4xl font-bold text-gray-900 dark:text-white">15K</p>
-<div class="flex items-center gap-2">
-<p class="text-sm text-gray-500 dark:text-gray-400">This Month</p>
-<p class="text-sm font-medium text-green-500">+8%</p>
-</div>
-</div>
-<div class="mt-6 h-[200px]">
-<svg fill="none" height="100%" preserveAspectRatio="none" viewBox="0 0 472 150" width="100%" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<linearGradient gradientUnits="userSpaceOnUse" id="area-gradient" x1="0" x2="0" y1="0" y2="150">
-<stop stop-color="#1173d4" stop-opacity="0.4"></stop>
-<stop offset="1" stop-color="#1173d4" stop-opacity="0"></stop>
-</linearGradient>
-</defs>
-<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V150H0V109Z" fill="url(#area-gradient)"></path>
-<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25" stroke="#1173d4" stroke-linecap="round" stroke-width="3"></path>
-</svg>
-</div>
-<div class="-mt-4 flex justify-around">
-<p class="text-xs font-medium text-gray-500 dark:text-gray-400">Week 1</p>
-<p class="text-xs font-medium text-gray-500 dark:text-gray-400">Week 2</p>
-<p class="text-xs font-medium text-gray-500 dark:text-gray-400">Week 3</p>
-<p class="text-xs font-medium text-gray-500 dark:text-gray-400">Week 4</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</main>
-</div>
+<html class="dark" lang="en">
 
-</body></html>
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Stitch Design</title>
+  <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1173d4",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            display: ["Inter"],
+          },
+          borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark">
+  <div class="flex h-screen w-full flex-col">
+
+    <header
+      class="flex h-16 shrink-0 items-center justify-between border-b border-background-light/10 dark:border-background-dark/10 bg-white/5 dark:bg-black/5 px-6 backdrop-blur-sm">
+      <div class="flex items-center gap-4">
+        <svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
+        </svg>
+        <h1 class="text-lg font-bold text-gray-900 dark:text-white">DataViz Playground</h1>
+      </div>
+      <div class="flex items-center gap-4">
+        <button
+          class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-gray-600 hover:bg-primary/20 dark:text-gray-400 dark:hover:bg-primary/30">
+          <span class="material-symbols-outlined"> help </span>
+        </button>
+        <div class="h-10 w-10 rounded-full bg-cover bg-center"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuANFwIzA3TUGLlO6feh2VXhVB4HDCSpwmg8iWpcy5ugvJgZH0CGQnOIeUF2BVprnoY_Lfg1L6_sQplFfFva6w5fxrqFancpjh487hT9shKxnrvPoR2pz5lYcX5G6iPa2MatI3w_F41LZJTU-NEdHlmPVODZPf9577763q8KXESm7HGLeFZBD9y0ZQ_abqvN2zlDK0Pwp7_CpNf0_TxBsNPKyKQyNFvFt2Sdf3msNbiDbTsd5BfPqTLuH6ZdMT92yD2oVlo3fdo7IUQ");'>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex flex-1 overflow-hidden">
+
+      <!-- Sidebar -->
+      <aside
+        class="w-80 shrink-0 border-r border-background-light/10 dark:border-background-dark/10 bg-white/5 dark:bg-black/5 p-6">
+        <div class="flex flex-col space-y-6">
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white">Chart Builder</h2>
+          <div class="space-y-4">
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm font-medium text-gray-500 dark:text-gray-400" for="chart-type">Chart Type</label>
+              <select id="chartType"
+                class="w-full rounded-lg border-gray-300 bg-background-light text-gray-900 dark:border-gray-700 dark:bg-background-dark dark:text-white">
+                <option value="bar">Bar Chart</option>
+                <option value="line">Line Chart</option>
+                <option value="area">Area Chart</option>
+                <option value="pie">Pie Chart</option>
+              </select>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm font-medium text-gray-500 dark:text-gray-400" for="data-source">Data Source</label>
+              <select id="dataSource"
+                class="w-full rounded-lg border-gray-300 bg-background-light text-gray-900 dark:border-gray-700 dark:bg-background-dark dark:text-white">
+              </select>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm font-medium text-gray-500 dark:text-gray-400" for="x-axis">X-Axis</label>
+              <select id="xAxis"
+                class="w-full rounded-lg border-gray-300 bg-background-light text-gray-900 dark:border-gray-700 dark:bg-background-dark dark:text-white"></select>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label class="text-sm font-medium text-gray-500 dark:text-gray-400" for="y-axis">Y-Axis</label>
+              <select id="yAxis"
+                class="w-full rounded-lg border-gray-300 bg-background-light text-gray-900 dark:border-gray-700 dark:bg-background-dark dark:text-white"></select>
+            </div>
+          </div>
+          <button id="addChartBtn"
+            class="flex h-10 w-full items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-white">
+            <span class="material-symbols-outlined mr-2"> add_chart </span>
+            Add Chart
+          </button>
+        </div>
+      </aside>
+
+      <!-- Charts Section -->
+      <div class="flex flex-1 flex-col overflow-auto">
+        <div
+          class="flex h-16 shrink-0 items-center justify-between border-b border-background-light/10 dark:border-background-dark/10 px-6">
+          <div class="flex items-center gap-2">
+            <button id="aiAnalysisBtn"
+              class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 hover:bg-primary/20"
+              title="AI Analysis">
+              <span class="material-symbols-outlined"> auto_awesome </span>
+            </button>
+            <button id="exportBtn"
+              class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 hover:bg-primary/20">
+              <span class="material-symbols-outlined"> ios_share </span>
+            </button>
+            <button id="refreshBtn"
+              class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 hover:bg-primary/20">
+              <span class="material-symbols-outlined"> refresh </span>
+            </button>
+          </div>
+        </div>
+
+        <div id="chartsContainer" class="flex-1 overflow-y-auto p-6 grid grid-cols-1 gap-6 @container lg:grid-cols-2">
+          <p id="noChartsMsg" class="text-gray-500 dark:text-gray-400">No charts added yet.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // === Load Data from LocalStorage ===
+    const saved = JSON.parse(localStorage.getItem("uploadedData"));
+    const datasets = saved?.datasets || []; // array of dataset objects
+
+    const xAxis = document.getElementById("xAxis");
+    const yAxis = document.getElementById("yAxis");
+    const dataSource = document.getElementById("dataSource");
+    const chartsContainer = document.getElementById("chartsContainer");
+    const noChartsMsg = document.getElementById("noChartsMsg");
+
+    let charts = []; // store chart instances and metadata
+    let currentDataset = null; // currently selected dataset
+
+    // === Populate Data Source Dropdown ===
+    function populateDataSources() {
+      dataSource.innerHTML = "";
+      datasets.forEach((ds, idx) => {
+        const opt = document.createElement("option");
+        opt.value = idx;
+        opt.textContent = ds.name;
+        dataSource.appendChild(opt);
+      });
+
+      if (datasets.length) {
+        currentDataset = datasets[0];
+        populateAxisSelectors();
+      }
+    }
+
+    // === Populate X/Y Axis selectors based on current dataset ===
+    function populateAxisSelectors() {
+      xAxis.innerHTML = "";
+      yAxis.innerHTML = "";
+      if (!currentDataset) return;
+
+      currentDataset.columns.forEach(col => {
+        const optX = document.createElement("option");
+        optX.value = col; optX.textContent = col;
+        xAxis.appendChild(optX);
+
+        const optY = document.createElement("option");
+        optY.value = col; optY.textContent = col;
+        yAxis.appendChild(optY);
+      });
+    }
+
+    // Update current dataset when user changes selection
+    dataSource.addEventListener("change", (e) => {
+      currentDataset = datasets[parseInt(e.target.value)];
+      populateAxisSelectors();
+    });
+
+    populateDataSources();
+
+    // Set a fixed size for all charts
+    const CHART_WIDTH = 600;  // px
+    const CHART_HEIGHT = 400; // px
+
+    // === Add Chart ===
+    document.getElementById("addChartBtn").addEventListener("click", () => {
+      if (!currentDataset) {
+        alert("Please select a dataset first.");
+        return;
+      }
+
+      const chartType = document.getElementById("chartType").value;
+      const xCol = xAxis.value;
+      const yCol = yAxis.value;
+
+      if (!xCol || !yCol) {
+        alert("Please select both X and Y axes.");
+        return;
+      }
+
+      const labels = currentDataset.tableData.map(r => r[xCol]);
+      const values = currentDataset.tableData.map(r => parseFloat(r[yCol]) || 0);
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "rounded-xl bg-white/5 dark:bg-black/5 p-6 relative";
+
+      // delete button
+      const delBtn = document.createElement("button");
+      delBtn.textContent = "Delete";
+      delBtn.className = "absolute top-2 right-2 px-2 py-1 text-xs rounded bg-red-600 text-white";
+      delBtn.addEventListener("click", () => {
+        wrapper.remove();
+        charts = charts.filter(c => c.wrapper !== wrapper);
+        updateChartSelector();
+        if (!charts.length) noChartsMsg.style.display = "block";
+      });
+      wrapper.appendChild(delBtn);
+
+      const canvas = document.createElement("canvas");
+      canvas.width = CHART_WIDTH;
+      canvas.height = CHART_HEIGHT;
+      wrapper.appendChild(canvas);
+      chartsContainer.appendChild(wrapper);
+      noChartsMsg.style.display = "none";
+
+      const chartInstance = new Chart(canvas, {
+        type: chartType === "area" ? "line" : chartType,
+        data: {
+          labels,
+          datasets: [{
+            label: yCol,
+            data: values,
+            backgroundColor: "rgba(17,115,212,0.4)",
+            borderColor: "#1173d4",
+            borderWidth: 2,
+            fill: chartType === "area"
+          }]
+        },
+        options: { responsive: false, maintainAspectRatio: false }
+      });
+
+      charts.push({ wrapper, chartInstance, xCol, yCol, chartType, datasetName: currentDataset.name });
+      updateChartSelector();
+    });
+
+    // === Update chart selector for export only ===
+    function updateChartSelector() {
+      let selector = document.getElementById("chartSelector");
+      if (!selector) {
+        selector = document.createElement("select");
+        selector.id = "chartSelector";
+        selector.className = "w-full rounded-lg border-gray-300 bg-background-light text-gray-900 dark:border-gray-700 dark:bg-background-dark dark:text-white mb-4";
+        document.querySelector("aside > .flex.flex-col.space-y-6").appendChild(selector);
+      }
+      selector.innerHTML = charts.map((c, idx) =>
+        `<option value="${idx}">${c.datasetName} | ${c.chartType} | ${c.yCol} vs ${c.xCol}</option>`).join("");
+    }
+
+    // === Refresh Button ===
+    document.getElementById("refreshBtn").addEventListener("click", () => location.reload());
+
+    // === Export Button ===
+    document.getElementById("exportBtn").addEventListener("click", () => {
+      if (!charts.length) {
+        alert("No charts to export.");
+        return;
+      }
+
+      const exportAll = confirm("Do you want to export all charts?\nClick OK for all, Cancel for selected only.");
+
+      function exportChart(chartObj, idx) {
+        const chart = chartObj.chartInstance;
+        const canvas = chart.canvas;
+        const ctx = canvas.getContext("2d");
+
+        const originalData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+        // Fill background with white
+        ctx.save();
+        ctx.globalCompositeOperation = "destination-over";
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        const link = document.createElement("a");
+        link.href = canvas.toDataURL("image/png");
+        link.download = `chart_${idx}.png`;
+        link.click();
+
+        ctx.putImageData(originalData, 0, 0);
+        ctx.restore();
+      }
+
+      if (exportAll) {
+        charts.forEach((c, idx) => exportChart(c, idx));
+      } else {
+        const selector = document.getElementById("chartSelector");
+        const selectedIdx = selector ? parseInt(selector.value) : 0;
+        exportChart(charts[selectedIdx], selectedIdx);
+      }
+    });
+
+    document.getElementById("aiAnalysisBtn").addEventListener("click", () => {
+      // Save currently selected dataset index to localStorage for AI page
+      const selectedDatasetIndex = dataSource.value || 0;
+      localStorage.setItem("aiDatasetIndex", selectedDatasetIndex);
+
+      // Redirect to AI Insights page
+      window.location.href = "../ai_insights_panel/code.html";
+    });
+
+  </script>
+
+</body>
+
+</html>

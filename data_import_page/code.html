@@ -1,181 +1,476 @@
-<!DOCTYPE html>
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Data Playground</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              primary: '#1173d4',
-              'background-light': '#f6f7f8',
-              'background-dark': '#101922',
-            },
-            fontFamily: {
-              display: ['Inter'],
-            },
-            borderRadius: { DEFAULT: '0.25rem', lg: '0.5rem', xl: '0.75rem', full: '9999px' },
-          },
-        },
-      };
-    </script>
-<style>
-      .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-      }
-    </style>
-</head>
-<body class="font-display bg-background-light dark:bg-background-dark">
-<div class="flex flex-col min-h-screen">
-<header class="bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm sticky top-0 z-20 border-b border-black/10 dark:border-white/10">
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex h-16 items-center justify-between">
-<div class="flex items-center gap-4">
-<div class="flex items-center gap-2 text-slate-800 dark:text-white">
-<svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path>
-<path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
-<h1 class="text-xl font-bold">Data Playground</h1>
-</div>
-</div>
-<nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Home</a>
-<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Datasets</a>
-<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Visualizations</a>
-<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#">Documentation</a>
-</nav>
-<div class="flex items-center gap-4">
-<button class="rounded-full p-2 text-slate-600 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
-<span class="material-symbols-outlined">help</span>
-</button>
-<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAcURNRtQ03-SA1nXJyy0Ks57M2He2Q4uoRuZeeLcK6Kz2YrXK4a2x8bYJwl_jWDf5Hz8SJKYTY2osyH5CuwYVh8tlpCrRuokm9ksk2Rz55PGGtN8P0WPJiou3g02h-bTugCydjhmP0TM6pB9IrrffJHWBi1vzjl0LbJxYwjDcBcyWO9Ancl33EGY84tLDFPDa4_3QccEIMCqcJ1esLzX3iAEeVp-RSDQvHDpTs_cEJJuBbXxxIGpOafbRGELxo9DJFERzDLtydMOM");'></div>
-</div>
-</div>
-</div>
-</header>
-<main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-<div class="max-w-4xl mx-auto">
-<div class="mb-8">
-<h2 class="text-3xl font-bold text-slate-900 dark:text-white">Import Data</h2>
-<p class="mt-2 text-slate-600 dark:text-slate-400">Upload your data or select a sample dataset to get started.</p>
-</div>
-<div class="border-b border-black/10 dark:border-white/10 mb-6">
-<nav aria-label="Tabs" class="-mb-px flex space-x-6">
-<a class="border-primary text-primary whitespace-nowrap py-4 px-1 border-b-2 font-semibold text-sm" href="#">Upload File</a>
-<a class="border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:border-slate-300 dark:hover:border-slate-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" href="#">Sample Datasets</a>
-</nav>
-</div>
-<div class="space-y-10">
-<section>
-<h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Upload CSV or JSON File</h3>
-<div class="flex items-center justify-center w-full">
-<label class="flex flex-col items-center justify-center w-full h-48 border-2 border-slate-300 dark:border-slate-700 border-dashed rounded-lg cursor-pointer bg-slate-50 dark:bg-slate-800/20 hover:bg-slate-100 dark:hover:bg-slate-800/40 transition-colors" for="dropzone-file">
-<div class="flex flex-col items-center justify-center pt-5 pb-6">
-<span class="material-symbols-outlined text-4xl text-slate-500 dark:text-slate-400">upload_file</span>
-<p class="mb-2 text-sm text-slate-500 dark:text-slate-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-<p class="text-xs text-slate-500 dark:text-slate-400">CSV or JSON (MAX. 50MB)</p>
-</div>
-<input class="hidden" id="dropzone-file" type="file"/>
-</label>
-</div>
-</section>
-<section>
-<h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Data Preview</h3>
-<div class="overflow-x-auto rounded-lg border border-black/10 dark:border-white/10">
-<table class="w-full text-sm text-left text-slate-500 dark:text-slate-400">
-<thead class="text-xs text-slate-700 dark:text-slate-300 uppercase bg-slate-50 dark:bg-slate-800">
-<tr>
-<th class="px-6 py-3" scope="col">Column Name</th>
-<th class="px-6 py-3" scope="col">Data Type</th>
-<th class="px-6 py-3" scope="col">Sample Data</th>
-<th class="px-6 py-3 text-right" scope="col">Actions</th>
-</tr>
-</thead>
-<tbody>
-<tr class="bg-background-light dark:bg-background-dark border-b border-black/10 dark:border-white/10">
-<th class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap" scope="row">Column 1</th>
-<td class="px-6 py-4">String</td>
-<td class="px-6 py-4">Sample Data 1</td>
-<td class="px-6 py-4 text-right space-x-2">
-<button class="p-1 rounded-full hover:bg-primary/20 text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">edit</span></button>
-<button class="p-1 rounded-full hover:bg-primary/20 text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">delete</span></button>
-</td>
-</tr>
-<tr class="bg-background-light dark:bg-background-dark border-b border-black/10 dark:border-white/10">
-<th class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap" scope="row">Column 2</th>
-<td class="px-6 py-4">Integer</td>
-<td class="px-6 py-4">123</td>
-<td class="px-6 py-4 text-right space-x-2">
-<button class="p-1 rounded-full hover:bg-primary/20 text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">edit</span></button>
-<button class="p-1 rounded-full hover:bg-primary/20 text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">delete</span></button>
-</td>
-</tr>
-<tr class="bg-background-light dark:bg-background-dark border-b border-black/10 dark:border-white/10">
-<th class="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap" scope="row">Column 3</th>
-<td class="px-6 py-4">Float</td>
-<td class="px-6 py-4">12.34</td>
-<td class="px-6 py-4 text-right space-x-2">
-<button class="p-1 rounded-full hover:bg-primary/20 text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">edit</span></button>
-<button class="p-1 rounded-full hover:bg-primary/20 text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors"><span class="material-symbols-outlined text-base">delete</span></button>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section>
-<h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Data Cleaning Tools</h3>
-<div class="space-y-6">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
-<div>
-<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1" for="rename-column">Rename Column</label>
-<select class="block w-full rounded border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark text-slate-900 dark:text-white shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50" id="rename-column">
-<option>Select a column</option>
-<option>Column 1</option>
-<option>Column 2</option>
-<option>Column 3</option>
-</select>
-</div>
-<div>
-<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1" for="new-column-name">New Column Name</label>
-<div class="flex gap-2">
-<input class="flex-grow block w-full rounded border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark text-slate-900 dark:text-white shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50" id="new-column-name" placeholder="Enter new name" type="text"/>
-<button class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded shadow-sm text-white bg-slate-600 dark:bg-slate-700 hover:bg-slate-700 dark:hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500">Rename</button>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
-<div>
-<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1" for="remove-column">Remove Column</label>
-<div class="flex gap-2">
-<select class="flex-grow block w-full rounded border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark text-slate-900 dark:text-white shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50" id="remove-column">
-<option>Select a column</option>
-<option>Column 1</option>
-<option>Column 2</option>
-<option>Column 3</option>
-</select>
-<button class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">Remove</button>
-</div>
-</div>
-</div>
-</div>
-</section>
-<div class="flex justify-end pt-6 border-t border-black/10 dark:border-white/10">
-<button class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-background-dark focus:ring-primary">
-                Import Data
-              </button>
-</div>
-</div>
-</div>
-</main>
-</div>
+<!doctype html>
+<html class="dark" lang="en">
 
-</body></html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Data Playground — Functional</title>
+
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: { primary: '#1173d4', 'background-light': '#f6f7f8', 'background-dark': '#101922' },
+          fontFamily: { display: ['Inter'] },
+          borderRadius: { DEFAULT: '0.25rem', lg: '0.5rem', xl: '0.75rem', full: '9999px' },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* small visual for drop active */
+    .drop-active {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark">
+  <div class="min-h-screen flex flex-col">
+    <header
+      class="sticky top-0 z-20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-black/10 dark:border-white/10">
+      <div class="container mx-auto px-4 py-4">
+        <h1 class="text-xl font-bold text-slate-800 dark:text-white">Data Playground</h1>
+      </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+      <div class="max-w-4xl mx-auto space-y-8">
+
+        <!-- Upload -->
+        <section>
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Upload Data</h2>
+          <label id="dropzone"
+            class="flex flex-col items-center justify-center w-full h-48 border-2 border-slate-300 dark:border-slate-700 border-dashed rounded-lg cursor-pointer bg-slate-50 dark:bg-slate-800/20 hover:bg-slate-100 dark:hover:bg-slate-800/40 transition-colors"
+            for="fileInput">
+            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+              <span class="material-symbols-outlined text-4xl text-slate-500 dark:text-slate-400">upload_file</span>
+              <p class="mb-2 text-sm text-slate-500 dark:text-slate-400"><span class="font-semibold">Click to
+                  upload</span> or drag & drop</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400">CSV or JSON (MAX. 50MB)</p>
+              <p id="drop-hint" class="text-xs text-slate-400 mt-2"></p>
+            </div>
+            <input id="fileInput" type="file" accept=".csv,.json,text/csv,application/json" class="hidden" />
+          </label>
+        </section>
+
+        <!-- Info -->
+        <div id="fileInfo" class="text-sm text-slate-600 dark:text-slate-300"></div>
+
+        <!-- Preview -->
+        <section>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Data Preview</h3>
+          <div id="previewContainer"
+            class="overflow-x-auto rounded-lg border border-black/10 dark:border-white/10 p-2 text-slate-600 dark:text-slate-300">
+            <p id="previewEmpty" class="text-sm">No data uploaded yet.</p>
+            <div id="preview" class="min-w-full"></div>
+          </div>
+        </section>
+
+        <!-- Data Cleaning -->
+        <section>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Data Cleaning Tools</h3>
+          <div class="space-y-4">
+            <div class="flex gap-2">
+              <select id="renameColumn"
+                class="flex-grow rounded border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark text-slate-900 dark:text-white">
+                <option value="">Select column</option>
+              </select>
+              <input id="newColumnName" type="text" placeholder="New name"
+                class="flex-grow rounded border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark text-slate-900 dark:text-white" />
+              <button id="renameBtn" class="px-4 py-2 rounded bg-slate-600 text-white">Rename</button>
+            </div>
+            <div class="flex gap-2">
+              <select id="removeColumn"
+                class="flex-grow rounded border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark text-slate-900 dark:text-white">
+                <option value="">Select column</option>
+              </select>
+              <button id="removeBtn" class="px-4 py-2 rounded bg-red-600 text-white">Remove</button>
+            </div>
+          </div>
+        </section>
+        <!-- Preview -->
+        <section>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-4">Data Preview</h3>
+          <div id="previewContainer"
+            class="overflow-x-auto rounded-lg border border-black/10 dark:border-white/10 p-2 text-slate-600 dark:text-slate-300">
+            <p id="previewEmpty" class="text-sm">No data uploaded yet.</p>
+            <div id="preview" class="min-w-full"></div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="mt-4 flex flex-row-reverse gap-2">
+            <button id="analysisBtn"
+              class="px-4 py-2 rounded bg-primary text-white hover:bg-blue-700 ">Analysis</button>
+            <button id="clearBtn" class="px-4 py-2 rounded bg-red-600 text-white hover:bg-red-700">Remove Data</button>
+          </div>
+        </section>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <script>
+    // state
+    let tableData = [];    // array of objects
+    let columns = [];      // array of column names
+    const PREVIEW_MAX_ROWS = 100; // limit preview size
+
+    // DOM
+    const fileInput = document.getElementById('fileInput');
+    const dropzone = document.getElementById('dropzone');
+    const dropHint = document.getElementById('drop-hint');
+    const fileInfo = document.getElementById('fileInfo');
+    const preview = document.getElementById('preview');
+    const previewEmpty = document.getElementById('previewEmpty');
+    const renameSelect = document.getElementById('renameColumn');
+    const removeSelect = document.getElementById('removeColumn');
+    const renameBtn = document.getElementById('renameBtn');
+    const removeBtn = document.getElementById('removeBtn');
+
+    // attach listeners after DOM load
+    document.addEventListener('DOMContentLoaded', () => {
+      fileInput.addEventListener('change', handleFileChange);
+      dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('drop-active'); dropHint.textContent = 'Release to drop the file'; });
+      dropzone.addEventListener('dragleave', e => { dropzone.classList.remove('drop-active'); dropHint.textContent = ''; });
+      dropzone.addEventListener('drop', e => {
+        e.preventDefault();
+        dropzone.classList.remove('drop-active');
+        dropHint.textContent = '';
+        if (!e.dataTransfer?.files?.length) return;
+        // call handler with a minimal event-like object
+        handleFileChange({ target: { files: e.dataTransfer.files } });
+      });
+
+      renameBtn.addEventListener('click', renameColumn);
+      removeBtn.addEventListener('click', removeColumn);
+    });
+
+    // helper: show info
+    function setFileInfo(html) { fileInfo.innerHTML = html || ''; }
+
+    // handle file select
+    async function handleFileChange(e) {
+      const f = e.target.files && e.target.files[0];
+      if (!f) return;
+      setFileInfo(`<strong>Selected:</strong> ${escapeHtml(f.name)} — ${(f.size / 1024 | 0)} KB`);
+      if (f.size > 50 * 1024 * 1024) {
+        setFileInfo(`<span class="text-red-600">File too large (over 50MB).</span>`);
+        return;
+      }
+
+      const ext = (f.name.split('.').pop() || '').toLowerCase();
+      try {
+        if (ext === 'csv' || f.type.includes('csv') || /\.csv$/i.test(f.name)) {
+          await parseCSVWithPapa(f);
+        } else if (ext === 'json' || f.type.includes('json') || /\.json$/i.test(f.name)) {
+          await parseJSONFile(f);
+        } else {
+          // try CSV first, then JSON
+          await parseCSVWithPapa(f).catch(() => parseJSONFile(f));
+        }
+      } catch (err) {
+        console.error(err);
+        setFileInfo(`<span class="text-red-600">Parsing error: ${escapeHtml(err.message || String(err))}</span>`);
+      }
+    }
+
+    // ensure Papa is loaded (dynamic load if needed)
+    function ensurePapa() {
+      return new Promise((resolve, reject) => {
+        if (window.Papa) return resolve(window.Papa);
+        const s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js';
+        s.onload = () => resolve(window.Papa);
+        s.onerror = () => reject(new Error('Failed to load PapaParse'));
+        document.head.appendChild(s);
+      });
+    }
+
+    async function parseCSVWithPapa(file) {
+      const Papa = await ensurePapa();
+      return new Promise((resolve, reject) => {
+        Papa.parse(file, {
+          header: true,
+          dynamicTyping: true,
+          skipEmptyLines: true,
+          transformHeader: h => (h === null ? '' : String(h).trim()),
+          complete: res => {
+            // filter out empty rows
+            const rows = Array.isArray(res.data) ? res.data.filter(r => Object.values(r || {}).some(v => v !== null && v !== '')) : [];
+            if (!rows.length) {
+              // sometimes CSVs are not headered, fallback to text parse
+              try {
+                const txt = file.text().then(txt => fallbackCsvTextParse(txt));
+                // if fallback parses, it will set tableData
+              } catch (e) {
+                // proceed with empty
+              }
+            }
+            tableData = rows;
+            columns = Array.isArray(res.meta?.fields) && res.meta.fields.length ? res.meta.fields : deriveFieldsFromData(tableData);
+            afterParse(file.name);
+            resolve();
+          },
+          error: err => {
+            console.error('PapaParse error', err);
+            reject(err);
+          }
+        });
+      });
+    }
+
+    // fallback simple CSV text parse (best-effort)
+    function fallbackCsvTextParse(text) {
+      const lines = text.split(/\r?\n/).filter(Boolean);
+      if (!lines.length) return;
+      const headers = lines[0].split(',').map(h => h.trim());
+      const rows = lines.slice(1).map(line => {
+        const vals = line.split(',').map(v => v.trim());
+        const obj = {};
+        headers.forEach((h, i) => obj[h || `col_${i}`] = vals[i] ?? '');
+        return obj;
+      });
+      tableData = rows;
+      columns = headers.length ? headers : deriveFieldsFromData(tableData);
+      afterParse('parsed-text.csv');
+    }
+
+    async function parseJSONFile(file) {
+      const txt = await file.text();
+      let parsed = JSON.parse(txt);
+      if (!parsed) throw new Error('Empty JSON');
+
+      if (Array.isArray(parsed)) {
+        // array could be objects or arrays
+        if (parsed.length === 0) {
+          tableData = [];
+          columns = [];
+        } else if (Array.isArray(parsed[0])) {
+          // assume first row headers
+          const headers = parsed[0].map(h => String(h));
+          const rows = parsed.slice(1).map(arr => {
+            const obj = {};
+            headers.forEach((h, i) => obj[h] = arr[i] ?? '');
+            return obj;
+          });
+          tableData = rows;
+          columns = headers;
+        } else if (typeof parsed[0] === 'object') {
+          tableData = parsed;
+          columns = deriveFieldsFromData(tableData);
+        } else {
+          // array of primitives
+          tableData = parsed.map((v, i) => ({ value: v }));
+          columns = ['value'];
+        }
+      } else if (typeof parsed === 'object') {
+        // single object
+        tableData = [parsed];
+        columns = deriveFieldsFromData(tableData);
+      } else {
+        // primitive
+        tableData = [{ value: parsed }];
+        columns = ['value'];
+      }
+      afterParse(file.name);
+    }
+
+    // called after successful parse
+    function afterParse(filename) {
+      if (!Array.isArray(tableData)) tableData = [];
+      if (!columns || !columns.length) columns = deriveFieldsFromData(tableData);
+      // remove rows that are completely empty
+      tableData = tableData.filter(r => Object.values(r || {}).some(v => v !== null && v !== ''));
+      setFileInfo(`<strong>Loaded:</strong> ${escapeHtml(filename)} — <strong>${tableData.length}</strong> rows · <strong>${columns.length}</strong> columns`);
+      renderTable();
+      updateColumnSelectors();
+    }
+
+    function deriveFieldsFromData(data) {
+      const s = new Set();
+      (data || []).forEach(r => {
+        if (typeof r === 'object' && r !== null) Object.keys(r).forEach(k => s.add(k));
+      });
+      return Array.from(s);
+    }
+
+    // render preview table (first PREVIEW_MAX_ROWS rows)
+    function renderTable() {
+      previewEmpty.style.display = (tableData && tableData.length) ? 'none' : 'block';
+      if (!tableData || !tableData.length) {
+        preview.innerHTML = '<p class="text-sm">No data available.</p>';
+        return;
+      }
+      const rowsToShow = tableData.slice(0, PREVIEW_MAX_ROWS);
+      const truncated = tableData.length > PREVIEW_MAX_ROWS;
+      let html = `<div class="mb-2 text-xs text-slate-500">Showing ${rowsToShow.length} of ${tableData.length} rows${truncated ? ' (preview truncated)' : ''} — columns: ${columns.length}</div>`;
+      html += `<table class="w-full text-sm text-left border-collapse"><thead class="bg-slate-100 dark:bg-slate-700"><tr>`;
+      columns.forEach(c => {
+        html += `<th class="px-3 py-2 border-b">${escapeHtml(c)}</th>`;
+      });
+      html += `<th class="px-3 py-2 border-b text-right">Actions</th></tr></thead><tbody>`;
+      rowsToShow.forEach((row, rIdx) => {
+        html += `<tr class="${rIdx % 2 === 0 ? 'bg-background-light dark:bg-background-dark' : ''}">`;
+        columns.forEach(col => {
+          html += `<td class="px-3 py-2 align-top border-b">${escapeHtml(String(row[col] ?? ''))}</td>`;
+        });
+        html += `<td class="px-3 py-2 border-b text-right"><button class="px-2 py-1 text-xs rounded bg-slate-200 dark:bg-slate-700" onclick="editRow(${rIdx})">Edit</button> <button class="px-2 py-1 text-xs rounded bg-red-200" onclick="deleteRow(${rIdx})">Delete</button></td></tr>`;
+      });
+      html += `</tbody></table>`;
+      preview.innerHTML = html;
+    }
+
+    // small row actions (for preview rows only)
+    window.editRow = function (idx) {
+      const absoluteIdx = idx; // preview index maps to same index in tableData slice
+      const row = tableData[absoluteIdx];
+      const updated = prompt(`Edit JSON for row ${absoluteIdx} (edit the object as valid JSON):`, JSON.stringify(row, null, 2));
+      if (!updated) return;
+      try {
+        const parsed = JSON.parse(updated);
+        tableData[absoluteIdx] = parsed;
+        renderTable();
+      } catch (err) {
+        alert('Invalid JSON. No change made.');
+      }
+    };
+
+    window.deleteRow = function (idx) {
+      if (!confirm('Delete this row from the dataset?')) return;
+      tableData.splice(idx, 1);
+      setFileInfo(`<strong>Updated rows:</strong> ${tableData.length}`);
+      renderTable();
+      updateColumnSelectors();
+    };
+
+    // column utilities
+    function updateColumnSelectors() {
+      const safeCols = columns || [];
+      const makeOptions = cols => {
+        return ['<option value="">Select column</option>', ...cols.map(c => `<option value="${escapeHtmlAttr(c)}">${escapeHtml(c)}</option>`)].join('');
+      };
+      renameSelect.innerHTML = makeOptions(safeCols);
+      removeSelect.innerHTML = makeOptions(safeCols);
+    }
+
+    function renameColumn() {
+      const oldName = renameSelect.value;
+      const newName = document.getElementById('newColumnName').value.trim();
+      if (!oldName || !newName) {
+        alert('Choose a column and enter a new name.');
+        return;
+      }
+      tableData = tableData.map(row => {
+        // preserve property order: assign new then delete old
+        row[newName] = row[oldName];
+        delete row[oldName];
+        return row;
+      });
+      columns = columns.map(c => c === oldName ? newName : c);
+      updateColumnSelectors();
+      renderTable();
+      setFileInfo(`<strong>Renamed:</strong> ${escapeHtml(oldName)} → ${escapeHtml(newName)}`);
+    }
+
+    function removeColumn() {
+      const col = removeSelect.value;
+      if (!col) { alert('Select a column to remove'); return; }
+      if (!confirm(`Remove column "${col}" from all rows?`)) return;
+      tableData = tableData.map(row => { delete row[col]; return row; });
+      columns = columns.filter(c => c !== col);
+      updateColumnSelectors();
+      renderTable();
+      setFileInfo(`<strong>Removed column:</strong> ${escapeHtml(col)}`);
+    }
+
+    // small helpers
+    function escapeHtml(s) { return (s + '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;'); }
+    function escapeHtmlAttr(s) { return (s + '').replaceAll('"', '&quot;').replaceAll('&', '&amp;'); }
+
+    // Buttons
+    analysisBtn.addEventListener('click', () => {
+      if (!tableData.length) {
+        alert("No data to analyze!");
+        return;
+      }
+      alert(`Analysis placeholder: You have ${tableData.length} rows and ${columns.length} columns.`);
+    });
+
+    clearBtn.addEventListener('click', () => {
+      if (!tableData.length) {
+        alert("No data uploaded.");
+        return;
+      }
+      if (!confirm("Remove uploaded data?")) return;
+
+      tableData = [];
+      columns = [];
+      preview.innerHTML = '';
+      previewEmpty.style.display = 'block';
+      setFileInfo('');
+      updateColumnSelectors();
+    });
+
+
+    analysisBtn.addEventListener('click', () => {
+      if (!tableData.length) {
+        alert("No data to analyze!");
+        return;
+      }
+
+      // Create a dataset object
+      const dataset = {
+        name: prompt("Enter dataset name:", "New Dataset") || "Untitled Dataset",
+        columns: columns,
+        tableData: tableData
+      };
+
+      // Save as an array of datasets in localStorage
+      let savedDatasets = JSON.parse(localStorage.getItem("uploadedData"))?.datasets || [];
+      savedDatasets.push(dataset);
+      localStorage.setItem("uploadedData", JSON.stringify({ datasets: savedDatasets }));
+
+      // Redirect to analysis page
+      window.location.href = "../visualization_playground/code.html"; // change if needed
+    });
+
+
+    clearBtn.addEventListener('click', () => {
+      if (!tableData.length) {
+        alert("No data uploaded.");
+        return;
+      }
+      if (!confirm("Remove uploaded data?")) return;
+
+      tableData = [];
+      columns = [];
+      preview.innerHTML = '';
+      previewEmpty.style.display = 'block';
+      setFileInfo('');
+      updateColumnSelectors();
+
+      // also clear from localStorage
+      localStorage.removeItem("uploadedData");
+    });
+
+  </script>
+</body>
+
+</html>
