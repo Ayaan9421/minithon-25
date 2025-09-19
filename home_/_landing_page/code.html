@@ -1,283 +1,261 @@
 <!DOCTYPE html>
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Stitch Design</title>
-<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              primary: "#1173d4",
-              "background-light": "#f6f7f8",
-              "background-dark": "#101922",
-            },
-            fontFamily: {
-              display: ["Inter"],
-            },
-            borderRadius: {
-              DEFAULT: "0.25rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              full: "9999px"
-            },
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Stitch Design</title>
+  <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1173d4",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            display: ["Inter"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
           },
         },
-      };
-    </script>
-<style>
-      .material-symbols-outlined {
-        font-variation-settings:
-        'FILL' 1,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
+      },
+    };
+
+    // ✅ Login checker
+    function checkLogin() {
+      const token = localStorage.getItem("authToken"); 
+      if (!token) {
+        window.location.href = "../../login_screen/code.html";
+      } else {
+        window.location.href = "../../dashboard/code.html";
       }
-    </style>
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24
+    }
+  </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
-<div class="relative flex h-auto min-h-screen w-full flex-col">
-<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-slate-200/80 bg-background-light/80 px-10 py-3 backdrop-blur-sm dark:border-slate-800/80 dark:bg-background-dark/80">
-<div class="flex items-center gap-4">
-<svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
-</svg>
-<h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">DataViz Playground</h2>
-</div>
-<div class="flex flex-1 items-center justify-end gap-8">
-<nav class="hidden items-center gap-9 md:flex">
-<a class="text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="#">Features</a>
-<a class="text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="#">Benefits</a>
-<a class="text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="#">Testimonials</a>
-<a class="text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="#">API</a>
-</nav>
-<div class="flex items-center gap-2">
-<button class="flex h-10 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary/90">
-<span class="truncate">Start Visualizing</span>
+<div class="relative flex flex-col min-h-screen">
+
+  <!-- ✅ Navbar -->
+  <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-slate-200/80 bg-background-light/80 px-10 py-3 backdrop-blur-sm dark:border-slate-800/80 dark:bg-background-dark/80">
+    <div class="flex items-center gap-4">
+      
+      <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white">Data Vizards</h2>
+    </div>
+    <div class="flex flex-1 items-center justify-end gap-8">
+      <nav class="hidden items-center gap-9 md:flex">
+        <a class="text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="#">home</a>
+       
+         <a class="text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="../../help_/_docs_page/code.html">help</a>
+          <a class="text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="../../ai_insights_panel/code.html">AI Insights</a>
+      
+        
+        <!-- ✅ Added Settings link -->
+        <a class="text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="../../settings_page/code.html">Settings</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <!-- ✅ Login functionality button -->
+        <button onclick="checkLogin()" class="flex h-10 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary/90">
+          <span class="truncate">Start Visualizing</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ✅ Main Content -->
+  <main class="flex-1">
+
+    <!-- Hero Section -->
+    <section class="relative flex min-h-[600px] items-center justify-center bg-cover bg-center py-20" style='background-image: linear-gradient(to top, rgba(16, 25, 34, 0.8) 20%, rgba(16, 25, 34, 0) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCcVezIzkIRb2OnUC6531lExRY4b3IbkT2v1jnifMjgsHq3P2urd5wgtR97jb-XRzOnCDcyCqzMxIh5varEP-q9Z59do9OovZge_LtwlbIf_s7tWlHbWwFasrCIJDgOOWMA1b_HiJqU4SuxyHYYXBi_C7CTrUI3Ouc4b3PO4UpXhaLDM3fa5zTPr2IxYb0yGMzmmtxKc1ipy_3jup7gbBPA1N6mQOTvlFlIiu1jti5TI-fypxFXF0Vebvd_gNWcBFiIeNrIX1R-BJo");'>
+      <div class="container mx-auto px-4 text-center">
+        <div class="mx-auto max-w-3xl">
+          <h1 class="text-4xl font-black leading-tight tracking-tighter text-white sm:text-5xl md:text-6xl">
+            Advanced Data Visualization Playground
+          </h1>
+          <p class="mt-4 text-lg text-slate-300">
+            Explore, analyze, and visualize your data with our powerful and intuitive tools.
+          </p>
+          <div class="mt-8 flex flex-wrap justify-center gap-4">
+           <button onclick="checkLogin()" 
+  class="flex h-12 min-w-[84px] max-w-[480px] items-center justify-center 
+         overflow-hidden rounded-lg bg-primary px-6 text-base font-bold text-white 
+         shadow-lg transition-transform hover:scale-105 hover:bg-primary/90">
+  <span class="truncate">Start for free</span>
 </button>
-</div>
-</div>
-</header>
-<main class="flex-1">
-<section class="relative flex min-h-[600px] items-center justify-center bg-cover bg-center py-20" style='background-image: linear-gradient(to top, rgba(16, 25, 34, 0.8) 20%, rgba(16, 25, 34, 0) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCcVezIzkIRb2OnUC6531lExRY4b3IbkT2v1jnifMjgsHq3P2urd5wgtR97jb-XRzOnCDcyCqzMxIh5varEP-q9Z59do9OovZge_LtwlbIf_s7tWlHbWwFasrCIJDgOOWMA1b_HiJqU4SuxyHYYXBi_C7CTrUI3Ouc4b3PO4UpXhaLDM3fa5zTPr2IxYb0yGMzmmtxKc1ipy_3jup7gbBPA1N6mQOTvlFlIiu1jti5TI-fypxFXF0Vebvd_gNWcBFiIeNrIX1R-BJo");'>
-<div class="container mx-auto px-4 text-center">
-<div class="mx-auto max-w-3xl">
-<h1 class="text-4xl font-black leading-tight tracking-tighter text-white sm:text-5xl md:text-6xl">
-                Advanced Data Visualization Playground
-              </h1>
-<p class="mt-4 text-lg text-slate-300">
-                Explore, analyze, and visualize your data with our powerful and intuitive tools. Perfect for data scientists and analysts looking to uncover deep insights.
-              </p>
-<div class="mt-8 flex flex-wrap justify-center gap-4">
-<button class="flex h-12 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-6 text-base font-bold text-white shadow-lg transition-transform hover:scale-105">
-<span class="truncate">Start for Free</span>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Features Section -->
+    <!-- Copied full content you provided -->
+    <section id="features" class="py-20 sm:py-24">
+      <div class="container mx-auto px-4">
+        <div class="mx-auto max-w-4xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            Unlock the Power of Your Data
+          </h2>
+          <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">
+            Our platform provides a comprehensive suite of features designed to handle complex data visualization and analysis with ease.
+          </p>
+        </div>
+        <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <!-- feature cards -->
+          <div class="flex flex-col gap-4 rounded-xl border border-slate-200/80 bg-white/50 p-6 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/50">
+            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/20">
+              <span class="material-symbols-outlined text-3xl">hub</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Drag-and-Drop Interface</h3>
+              <p class="text-slate-600 dark:text-slate-400">Effortlessly build complex visualizations without writing a single line of code.</p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4 rounded-xl border border-slate-200/80 bg-white/50 p-6 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/50">
+            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/20">
+              <span class="material-symbols-outlined text-3xl">code</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Custom Scripting</h3>
+              <p class="text-slate-600 dark:text-slate-400">For ultimate flexibility, integrate Python or R scripts to perform custom data transformations and analysis.</p>
+            </div>
+          </div>
+          <div class="flex flex-col gap-4 rounded-xl border border-slate-200/80 bg-white/50 p-6 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/50">
+            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/20">
+              <span class="material-symbols-outlined text-3xl">share</span>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Collaborative Workspaces</h3>
+              <p class="text-slate-600 dark:text-slate-400">Share your projects, collaborate with your team in real-time, and present your findings effectively.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Benefits Section -->
+    <section id="benefits" class="bg-slate-100/50 py-20 dark:bg-slate-900/50 sm:py-24">
+      <div class="container mx-auto px-4">
+        <div class="mx-auto max-w-4xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            Why Data Professionals Choose Us
+          </h2>
+          <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">We empower data scientists and analysts to work faster, smarter, and more collaboratively.</p>
+        </div>
+        <div class="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2">
+          <div>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white">For Data Scientists</h3>
+            <ul class="mt-6 space-y-4">
+              <li class="flex gap-4">
+                <div class="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary"><span class="material-symbols-outlined text-xl">speed</span></div>
+                <p class="text-slate-600 dark:text-slate-400"><span class="font-semibold text-slate-800 dark:text-slate-200">Accelerate Experimentation:</span> Quickly iterate on different visualization models and statistical analyses.</p>
+              </li>
+              <li class="flex gap-4">
+                <div class="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary"><span class="material-symbols-outlined text-xl">model_training</span></div>
+                <p class="text-slate-600 dark:text-slate-400"><span class="font-semibold text-slate-800 dark:text-slate-200">Seamless Integration:</span> Visualize outputs of your ML models directly within the platform.</p>
+              </li>
+              <li class="flex gap-4">
+                <div class="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary"><span class="material-symbols-outlined text-xl">memory</span></div>
+                <p class="text-slate-600 dark:text-slate-400"><span class="font-semibold text-slate-800 dark:text-slate-200">Reproducible Research:</span> Maintain version control, reproducibility, and auditability.</p>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white">For Data Analysts</h3>
+            <ul class="mt-6 space-y-4">
+              <li class="flex gap-4">
+                <div class="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary"><span class="material-symbols-outlined text-xl">insights</span></div>
+                <p class="text-slate-600 dark:text-slate-400"><span class="font-semibold text-slate-800 dark:text-slate-200">Uncover Insights:</span> Build dashboards that tell a compelling story.</p>
+              </li>
+              <li class="flex gap-4">
+                <div class="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary"><span class="material-symbols-outlined text-xl">group</span></div>
+                <p class="text-slate-600 dark:text-slate-400"><span class="font-semibold text-slate-800 dark:text-slate-200">Democratize Data:</span> Share interactive reports with stakeholders.</p>
+              </li>
+              <li class="flex gap-4">
+                <div class="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary"><span class="material-symbols-outlined text-xl">cloud_upload</span></div>
+                <p class="text-slate-600 dark:text-slate-400"><span class="font-semibold text-slate-800 dark:text-slate-200">Connect to Any Source:</span> From CSVs to enterprise data warehouses.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Testimonials Section -->
+    <section id="testimonials" class="py-20 sm:py-24">
+      <div class="container mx-auto px-4">
+        <div class="mx-auto max-w-4xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Trusted by Leading Data Experts</h2>
+          <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">Hear what our users have to say about their experience.</p>
+        </div>
+        <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <!-- one testimonial -->
+          <div class="flex flex-col gap-6 rounded-xl border border-slate-200/80 bg-white/50 p-8 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/50">
+            <p class="text-slate-600 dark:text-slate-400">"This platform has completely changed how I approach exploratory data analysis."</p>
+            <div class="flex items-center gap-4">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB630dEvswsNYBZLWGf_2WENd3JbpAiEp0wXxRs9uSo_jtGRFVdZCsGzIqgLvscrX9fo6j4rrYcABiC_tVnoiqDRwPL9RSmUwykhUQeWGeh5jiEJ2nai7Ny_B7kJJZaXviEQ2Es5rH8QHHjAy-hFzBDiYq1Va_MairNV1Vqa2I-HAqk9xyurXfjpBEiZ2EfCw2o_tLcBycm399Dg9N7gu7GP-pZYgmOjRZB4z_aLoJztJ02qx3tVDivV4dzqAFLUUY5OKsCCZ1pqEs" alt="avatar" class="h-12 w-12 rounded-full"/>
+              <div><p class="font-bold text-slate-900 dark:text-white">Dr. Elena Rodriguez</p><p class="text-sm text-slate-500 dark:text-slate-400">Lead Data Scientist</p></div>
+            </div>
+          </div>
+          <!-- continue with other testimonials (Mark Chen, Samantha Lee) as your content --> 
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ CTA Section -->
+    <section class="bg-primary/5 py-20 dark:bg-primary/10 sm:py-24">
+      <div class="container mx-auto px-4">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">Ready to Visualize Your Data?</h2>
+          <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">Join thousands of data professionals who are turning complex data into clear, actionable insights.</p>
+          <div class="mt-8 flex justify-center">
+          <button onclick="checkLogin()" 
+  class="flex h-12 min-w-[84px] max-w-[480px] items-center justify-center 
+         overflow-hidden rounded-lg bg-primary px-6 text-base font-bold text-white 
+         shadow-lg transition-transform hover:scale-105 hover:bg-primary/90">
+  <span class="truncate">Start for free</span>
 </button>
-<button class="flex h-12 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-white/10 px-6 text-base font-bold text-white backdrop-blur-sm transition-transform hover:scale-105 hover:bg-white/20">
-<span class="truncate">Try Sample Data</span>
-</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ✅ Footer -->
+  <footer class="border-t border-slate-200/80 bg-background-light px-10 py-8 dark:border-slate-800/80 dark:bg-background-dark">
+    <div class="container mx-auto flex flex-col items-center justify-between gap-4 md:flex-row">
+      <div class="flex items-center gap-2">
+        <svg class="h-5 w-5 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
+        </svg>
+        <p class="text-sm text-slate-600 dark:text-slate-400">© 2025 Data Vizard. All rights reserved.</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <a class="text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="#">Privacy Policy</a>
+        <a class="text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
 </div>
-</div>
-</div>
-</section>
-<section class="py-20 sm:py-24" id="features">
-<div class="container mx-auto px-4">
-<div class="mx-auto max-w-4xl text-center">
-<h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-                Unlock the Power of Your Data
-              </h2>
-<p class="mt-4 text-lg text-slate-600 dark:text-slate-400">
-                Our platform provides a comprehensive suite of features designed to handle complex data visualization and analysis with ease.
-              </p>
-</div>
-<div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-<div class="flex flex-col gap-4 rounded-xl border border-slate-200/80 bg-white/50 p-6 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/50">
-<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/20">
-<span class="material-symbols-outlined text-3xl">hub</span>
-</div>
-<div class="flex flex-col gap-1">
-<h3 class="text-lg font-bold text-slate-900 dark:text-white">Drag-and-Drop Interface</h3>
-<p class="text-slate-600 dark:text-slate-400">Effortlessly build complex visualizations without writing a single line of code.</p>
-</div>
-</div>
-<div class="flex flex-col gap-4 rounded-xl border border-slate-200/80 bg-white/50 p-6 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/50">
-<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/20">
-<span class="material-symbols-outlined text-3xl">code</span>
-</div>
-<div class="flex flex-col gap-1">
-<h3 class="text-lg font-bold text-slate-900 dark:text-white">Custom Scripting</h3>
-<p class="text-slate-600 dark:text-slate-400">
-                    For ultimate flexibility, integrate Python or R scripts to perform custom data transformations and analysis.
-                  </p>
-</div>
-</div>
-<div class="flex flex-col gap-4 rounded-xl border border-slate-200/80 bg-white/50 p-6 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/50">
-<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/20">
-<span class="material-symbols-outlined text-3xl">share</span>
-</div>
-<div class="flex flex-col gap-1">
-<h3 class="text-lg font-bold text-slate-900 dark:text-white">Collaborative Workspaces</h3>
-<p class="text-slate-600 dark:text-slate-400">
-                    Share your projects, collaborate with your team in real-time, and present your findings effectively.
-                  </p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="bg-slate-100/50 py-20 dark:bg-slate-900/50 sm:py-24" id="benefits">
-<div class="container mx-auto px-4">
-<div class="mx-auto max-w-4xl text-center">
-<h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-                Why Data Professionals Choose Us
-              </h2>
-<p class="mt-4 text-lg text-slate-600 dark:text-slate-400">
-                We empower data scientists and analysts to work faster, smarter, and more collaboratively.
-              </p>
-</div>
-<div class="mt-16 grid grid-cols-1 gap-12 md:grid-cols-2">
-<div>
-<h3 class="text-2xl font-bold text-slate-900 dark:text-white">For Data Scientists</h3>
-<ul class="mt-6 space-y-4">
-<li class="flex items-start gap-4">
-<div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-<span class="material-symbols-outlined text-xl">speed</span>
-</div>
-<p class="text-slate-600 dark:text-slate-400">
-<span class="font-semibold text-slate-800 dark:text-slate-200">Accelerate Experimentation:</span> Quickly iterate on different visualization models and statistical analyses to test hypotheses faster than ever.
-                      </p>
-</li>
-<li class="flex items-start gap-4">
-<div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-<span class="material-symbols-outlined text-xl">model_training</span>
-</div>
-<p class="text-slate-600 dark:text-slate-400">
-<span class="font-semibold text-slate-800 dark:text-slate-200">Seamless Model Integration:</span> Visualize the outputs of your machine learning models directly within the platform for easier interpretation.
-                      </p>
-</li>
-<li class="flex items-start gap-4">
-<div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-<span class="material-symbols-outlined text-xl">memory</span>
-</div>
-<p class="text-slate-600 dark:text-slate-400">
-<span class="font-semibold text-slate-800 dark:text-slate-200">Reproducible Research:</span> Maintain version control of your analyses and visualizations, ensuring your work is easily reproducible and auditable.
-                      </p>
-</li>
-</ul>
-</div>
-<div>
-<h3 class="text-2xl font-bold text-slate-900 dark:text-white">For Data Analysts</h3>
-<ul class="mt-6 space-y-4">
-<li class="flex items-start gap-4">
-<div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-<span class="material-symbols-outlined text-xl">insights</span>
-</div>
-<p class="text-slate-600 dark:text-slate-400">
-<span class="font-semibold text-slate-800 dark:text-slate-200">Uncover Actionable Insights:</span> Go beyond basic charts. Build sophisticated dashboards that tell a compelling story with your data.
-                      </p>
-</li>
-<li class="flex items-start gap-4">
-<div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-<span class="material-symbols-outlined text-xl">group</span>
-</div>
-<p class="text-slate-600 dark:text-slate-400">
-<span class="font-semibold text-slate-800 dark:text-slate-200">Democratize Data:</span> Create and share interactive reports that empower business stakeholders to explore data and make informed decisions.
-                      </p>
-</li>
-<li class="flex items-start gap-4">
-<div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-<span class="material-symbols-outlined text-xl">cloud_upload</span>
-</div>
-<p class="text-slate-600 dark:text-slate-400">
-<span class="font-semibold text-slate-800 dark:text-slate-200">Connect to Any Source:</span> Effortlessly connect to a wide range of data sources, from simple CSVs to complex enterprise data warehouses.
-                      </p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class="py-20 sm:py-24" id="testimonials">
-<div class="container mx-auto px-4">
-<div class="mx-auto max-w-4xl text-center">
-<h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-                Trusted by Leading Data Experts
-              </h2>
-<p class="mt-4 text-lg text-slate-600 dark:text-slate-400">
-                Hear what our users have to say about their experience with the DataViz Playground.
-              </p>
-</div>
-<div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-<div class="flex flex-col gap-6 rounded-xl border border-slate-200/80 bg-white/50 p-8 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/50">
-<p class="text-slate-600 dark:text-slate-400">"This platform has completely changed how I approach exploratory data analysis. The speed and flexibility are unmatched. I can prototype visualizations in minutes, not hours."</p>
-<div class="flex items-center gap-4">
-<img alt="User avatar" class="h-12 w-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB630dEvswsNYBZLWGf_2WENd3JbpAiEp0wXxRs9uSo_jtGRFVdZCsGzIqgLvscrX9fo6j4rrYcABiC_tVnoiqDRwPL9RSmUwykhUQeWGeh5jiEJ2nai7Ny_B7kJJZaXviEQ2Es5rH8QHHjAy-hFzBDiYq1Va_MairNV1Vqa2I-HAqk9xyurXfjpBEiZ2EfCw2o_tLcBycm399Dg9N7gu7GP-pZYgmOjRZB4z_aLoJztJ02qx3tVDivV4dzqAFLUUY5OKsCCZ1pqEs"/>
-<div>
-<p class="font-bold text-slate-900 dark:text-white">Dr. Elena Rodriguez</p>
-<p class="text-sm text-slate-500 dark:text-slate-400">Lead Data Scientist, Innovate Inc.</p>
-</div>
-</div>
-</div>
-<div class="flex flex-col gap-6 rounded-xl border border-slate-200/80 bg-white/50 p-8 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/50">
-<p class="text-slate-600 dark:text-slate-400">"As an analyst, being able to quickly build and share interactive dashboards with stakeholders is a game-changer. DataViz Playground makes my insights more impactful and accessible."</p>
-<div class="flex items-center gap-4">
-<img alt="User avatar" class="h-12 w-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd8SDqd6Qj_nj9og9EZoWXTpU-t1VdwS2ILjfEOFFM_Okowr6jm_6TuiZ2u-8dLSjKrktZMyTpEmdOqIayM3m1T8uw879-Jf7j9SbPugHMP2I75LDYVUZPrz3VvXQANRlRijcoAzWVKuIiCZDBrzWpm5hi2KxEx4wt7X5iO2FYN01-gsdKhf6AD-fnbjg7lL-orcANvFNqfyMmOA0TbjMGR9nVHbtMPpf04sLFwmgQxIe-s8h908X236WxSD0EZWkg2JrMQb3VcDw"/>
-<div>
-<p class="font-bold text-slate-900 dark:text-white">Mark Chen</p>
-<p class="text-sm text-slate-500 dark:text-slate-400">Senior Data Analyst, QuantumLeap</p>
-</div>
-</div>
-</div>
-<div class="flex flex-col gap-6 rounded-xl border border-slate-200/80 bg-white/50 p-8 shadow-sm dark:border-slate-800/80 dark:bg-slate-900/50">
-<p class="text-slate-600 dark:text-slate-400">"The API integration is seamless. We've been able to programmatically generate complex visualizations and embed them directly into our internal reporting tools. Highly recommended."</p>
-<div class="flex items-center gap-4">
-<img alt="User avatar" class="h-12 w-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKtx8oW5zBHNazzWzBwKGsylhApeQIgj71s8r3B_lTMC5GPLizSEevOvBjKV8ffpigU9U_XY_tii7Ytq3V_XRVTYpiyMgbyIs0wgd2fUKUW2pYILqCbs9TsCB6z9XRu2kzmwaJngpp0MNH1CSsWm1CuFL5vU5kWuq6airEULXS1muFWsrku_h6kHncAYaljNU-cmURCI1Asdi6OscJDEE5LVZl1c3JWvWRVPOOZ7oithEvNXpy9pe9dQdc2SUGR1cYpnnIOybYj6s"/>
-<div>
-<p class="font-bold text-slate-900 dark:text-white">Samantha Lee</p>
-<p class="text-sm text-slate-500 dark:text-slate-400">Head of Analytics, DataDriven Co.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="bg-primary/5 py-20 dark:bg-primary/10 sm:py-24">
-<div class="container mx-auto px-4">
-<div class="mx-auto max-w-2xl text-center">
-<h2 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-              Ready to Visualize Your Data?
-            </h2>
-<p class="mt-4 text-lg text-slate-600 dark:text-slate-400">
-              Join thousands of data professionals who are turning complex data into clear, actionable insights. Sign up for free to start your journey.
-            </p>
-<div class="mt-8 flex justify-center">
-<button class="flex h-12 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-6 text-base font-bold text-white shadow-lg transition-transform hover:scale-105">
-<span class="truncate">Get Started Now</span>
-</button>
-</div>
-</div>
-</div>
-</section>
-</main>
-<footer class="border-t border-slate-200/80 bg-background-light px-10 py-8 dark:border-slate-800/80 dark:bg-background-dark">
-<div class="container mx-auto flex flex-col items-center justify-between gap-4 md:flex-row">
-<div class="flex items-center gap-2">
-<svg class="h-5 w-5 text-primary" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
-</svg>
-<p class="text-sm text-slate-600 dark:text-slate-400">© 2024 DataViz Playground. All rights reserved.</p>
-</div>
-<div class="flex items-center gap-6">
-<a class="text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="#">Privacy Policy</a>
-<a class="text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary" href="#">Terms of Service</a>
-</div>
-</div>
-</footer>
-</div>
-</body></html>
+<!-- ✅ Theme persistence -->
+<script src="../../assets/js/theme.js"></script>
+</body>
+</html>
